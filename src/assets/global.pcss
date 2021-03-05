@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: theme("fontSize.xl");
+    line-height: theme("lineHeight.loose");
+  }
+
+  .using-mouse *:focus {
+    outline: 0 !important;
+  }
+
+  body:not(.using-mouse) *:focus {
+    @apply outline-none ring-4 ring-color-accent-1 !important;
+  }
+
+  img {
+    @apply mx-auto border-2 border-color-white;
+  }
+
+  label {
+    @apply block mb-2 text-sm font-bold uppercase;
+  }
+
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply w-full px-6 py-2;
+  }
+
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="time"],
+  [type="checkbox"],
+  [type="radio"],
+  textarea,
+  select {
+    @apply border-2 rounded-md bg-color-surface-2 text-color-content-2 border-color-accent-4 focus:outline-none focus:ring-4 focus:ring-color-accent-1 focus:border-inherit;
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    @apply w-6 h-6 focus:ring-offset-0 text-color-content-1;
+  }
+
+  textarea {
+    @apply resize-none;
+  }
+
+  .container {
+    @apply px-6 mx-auto lg:px-20;
+  }
+
+  .container--fixed {
+    @apply max-w-screen-2xl;
+  }
+}
+
+@layer components {
+  /* 
+  +++++++++++++++++++++++++++++++++++++++++++++++
+  CUSTOM ELEMENTS
+  +++++++++++++++++++++++++++++++++++++++++++++++ 
+  */
+  .button:disabled {
+    @apply bg-transparent border-solid cursor-not-allowed border-color-accent-4 text-color-accent-4;
+  }
+  .button {
+    @apply inline-block font-bold text-center transition-colors duration-300 border-2 border-solid rounded-full cursor-pointer text-color-content-1 bg-color-surface-3 border-color-surface-3;
+  }
+  .button--dark {
+    @apply text-color-content-2 border-color-surface-2 bg-color-accent-3 hover:border-color-surface-3;
+  }
+  .button--outline {
+    @apply bg-transparent border-solid border-color-accent-2 hover:border-current text-inherit;
+  }
+
+  .error-message {
+    background-color: var(--color-red);
+    @apply py-0.5 px-4 rounded-md text-color-white text-base;
+  }
+
+  .input-wrapper {
+    @apply relative mb-6;
+  }
+  .input-wrapper svg {
+    @apply absolute transform top-1/2 left-3 -translate-y-2/4 hover:scale-100;
+  }
+
+  .link-decor {
+    @apply relative pb-1 font-bold;
+  }
+  .link-decor:hover::after {
+    @apply w-0;
+  }
+  .link-decor::after {
+    content: "";
+    @apply block absolute left-2/4 bottom-0 transform -translate-x-1/2 h-0.5 w-full bg-color-accent-2 transition-all duration-300;
+  }
+
+  /*
+  +++++++++++++++++++++++++++++++++++++++++++++++
+  PROSE
+  +++++++++++++++++++++++++++++++++++++++++++++++ 
+  */
+  .prose {
+    @apply max-w-4xl mx-auto leading-loose text-inherit;
+  }
+
+  .prose * {
+    @apply text-inherit;
+  }
+
+  .prose a {
+    @apply no-underline transition-all duration-300 bg-bottom bg-no-repeat bg-gradient-to-b from-color-accent-2 to-color-accent-2;
+    background-size: 100% 10%;
+  }
+
+  .prose a:hover {
+    background-size: 100% 100%;
+    @apply text-color-content-1;
+  }
+
+  .prose a,
+  .prose blockquote,
+  .prose strong,
+  .prose ol > li::before {
+    @apply text-inherit;
+  }
+
+  .prose blockquote {
+    @apply border-color-surface-1;
+  }
+
+  .prose p:empty {
+     @apply hidden;
+  }
+
+  .prose ul > li::before {
+    background-color: currentColor;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  @apply h-full
+}
+
+html,
+body,
+#sapper {
+  @apply min-h-full
+}
+
+body {
+  @apply bg-gradient bg-color-surface-2 text-color-content-2;
+}
+
+#sapper {
+  display: flex;
+  flex-direction: column;
+}
+

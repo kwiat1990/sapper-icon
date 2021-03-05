@@ -1,0 +1,18 @@
+$colors: (
+  "eerie-black": #212121,
+  "jet": #313131,
+  "white": #fff,
+  "black": #000,
+  "red": #ff0047,
+  "isabelline": #fcfaf5,
+  "bone": #ded0bf,
+  "gold-crayola": #e0c691,
+  "wheat": #ead6ae,
+  "gray": #d6d6d6,
+);
+
+:root {
+  @each $name, $code in $colors {
+    --color-#{$name}: #{$code};
+  }
+}
